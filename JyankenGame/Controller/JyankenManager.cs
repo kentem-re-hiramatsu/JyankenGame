@@ -21,13 +21,16 @@ namespace JyankenGame.Controller
 
             while (true)
             {
-                if((int)type >= 1 && (int)type <= 3)
+                if(type >= (int)JyankenTypeEnum.JyankenType.グー && (type <= (int)JyankenTypeEnum.JyankenType.パー))
                 {
                     _userHandSignal = type;
+                    return;
                 }
                 else
                 {
                     Console.WriteLine(Constans.HANDSIGNAL_ERROR_MESSAGE);
+                    type = int.Parse(Console.ReadLine());
+                    continue;
                 }
             }
         }
@@ -41,7 +44,7 @@ namespace JyankenGame.Controller
             return randamHandSignal;
         }
 
-        public JyankenTypeEnum.JyankenType GetHandName(int handType)
+        private JyankenTypeEnum.JyankenType GetHandName(int handType)
         {
             if (handType == (int)JyankenTypeEnum.JyankenType.グー)
             {

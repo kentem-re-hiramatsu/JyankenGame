@@ -23,9 +23,10 @@ namespace JyankenGame
                 if (selectType == 1)
                 {
                     Console.WriteLine(Constans.HANDSIGNAL_MESSAGE);
+
                     var inputJyankenType = int.Parse(Console.ReadLine()!);
 
-                    manager.GetHandName(inputJyankenType);
+                    manager.GetHandSignal(inputJyankenType);
                     manager.ShowWinLoseJuge();
                 }
                 else
