@@ -32,7 +32,7 @@ namespace JyankenGame.Controller
             }
         }
 
-        public int GetEnemyHandSignal()
+        private int GetEnemyHandSignal()
         {
             Random random = new Random();
 
@@ -69,16 +69,17 @@ namespace JyankenGame.Controller
 
             if (juge == 0)
             {
-                jyankenScore.SetRecord(1, 0);
+                jyankenScore.SetRecord(1);
                 Console.WriteLine(Constans.PLAYER_DRAW_MESSAGE,userJyankenType,enemyJyankenType);
             }
             else if(juge == 2)
             {
-                jyankenScore.SetRecord(0,1);
+                jyankenScore.SetRecord(0);
                 Console.WriteLine(Constans.PLAYER_WIN_MESSAGE,userJyankenType,enemyJyankenType);
             }
             else
             {
+                jyankenScore.SetRecord(0);
                 Console.WriteLine(Constans.PLAYER_LOSE_MESSAGE,userJyankenType,enemyJyankenType);
             }
         }
@@ -86,10 +87,10 @@ namespace JyankenGame.Controller
         public void ShowOverAllScores()
         {
             var winScore = jyankenScore.GetWinRecord();
-            var loseScore = jyankenScore.GetLoseRecord();
-            var allScore = (loseScore / winScore) * 100;
+            var allScore = jyankenScore.GetLoseRecord();
+            var winRate = (winScore / allScore) * 100;
 
-            Console.WriteLine(Constans.PLAYER_OVER_ALL_SCORE_MESSAGE,allScore);
+            Console.WriteLine(Constans.PLAYER_OVER_ALL_SCORE_MESSAGE,winRate);
         }
     }
 }

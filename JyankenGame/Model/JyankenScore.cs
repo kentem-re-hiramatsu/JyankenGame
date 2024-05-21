@@ -9,12 +9,12 @@ namespace JyankenGame.Model
     public class JyankenScore
     {
         private int _winRecord = 0;
-        private int _LoseRecord = 0;
+        private int _allRecord = 0;
 
-        public void SetRecord (int winRecord, int loseRecord)
+        public void SetRecord (int winRecord)
         {
             _winRecord += winRecord;
-            _LoseRecord += loseRecord;
+            _allRecord += 1;
         }
 
         public int GetWinRecord ()
@@ -24,7 +24,7 @@ namespace JyankenGame.Model
 
         public int GetLoseRecord ()
         {
-            return _LoseRecord;
+            return _allRecord;
         }
     }
 }
