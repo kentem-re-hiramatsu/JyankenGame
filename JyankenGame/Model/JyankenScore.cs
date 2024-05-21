@@ -22,7 +22,7 @@ namespace JyankenGame.Model
             return _winRecord;
         }
 
-        public int GetLoseRecord ()
+        public int GetAllRecord ()
         {
             return _allRecord;
         }

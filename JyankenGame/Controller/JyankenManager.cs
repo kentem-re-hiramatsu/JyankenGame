@@ -69,12 +69,12 @@ namespace JyankenGame.Controller
 
             if (juge == 0)
             {
-                jyankenScore.SetRecord(1);
+                jyankenScore.SetRecord(0);
                 Console.WriteLine(Constans.PLAYER_DRAW_MESSAGE,userJyankenType,enemyJyankenType);
             }
             else if(juge == 2)
             {
-                jyankenScore.SetRecord(0);
+                jyankenScore.SetRecord(1);
                 Console.WriteLine(Constans.PLAYER_WIN_MESSAGE,userJyankenType,enemyJyankenType);
             }
             else
@@ -86,9 +86,9 @@ namespace JyankenGame.Controller
 
         public void ShowOverAllScores()
         {
-            var winScore = jyankenScore.GetWinRecord();
-            var allScore = jyankenScore.GetLoseRecord();
-            var winRate = (winScore / allScore) * 100;
+            double winScore = jyankenScore.GetWinRecord();
+            double allScore = jyankenScore.GetAllRecord();
+            double winRate = Math.Round((winScore / allScore) * 100 ,2);
 
             Console.WriteLine(Constans.PLAYER_OVER_ALL_SCORE_MESSAGE,winRate);
         }
