@@ -22,11 +22,11 @@ namespace JyankenGame
 
                 if (selectType == 1)
                 {
-                    Console.WriteLine(Constans.HANDSIGNAL_MESSAGE);
+                    Console.WriteLine(Constans.JYANKEN_MESSAGE);
 
                     var inputJyankenType = int.Parse(Console.ReadLine()!);
 
-                    manager.GetHandSignal(inputJyankenType);
+                    manager.GetUserJyanken(inputJyankenType);
                     manager.ShowWinLoseJuge();
                 }
                 else

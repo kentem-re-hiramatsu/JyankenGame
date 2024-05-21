@@ -8,23 +8,23 @@ namespace JyankenGame.Model
 {
     public class JyankenScore
     {
-        private int _winRecord = 0;
-        private int _allRecord = 0;
+        private int _winScore = 0;
+        private int _allScore = 0;
 
-        public void SetRecord (int winRecord)
+        public void SetRecord (int winScore)
         {
-            _winRecord += winRecord;
-            _allRecord += 1;
+            _winScore += winScore;
+            _allScore += 1;
         }
 
-        public int GetWinRecord ()
+        public int GetWinScore ()
         {
-            return _winRecord;
+            return _winScore;
         }
 
-        public int GetAllRecord ()
+        public int GetAllScore ()
         {
-            return _allRecord;
+            return _allScore;
         }
     }
 }

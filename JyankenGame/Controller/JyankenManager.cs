@@ -11,37 +11,37 @@ namespace JyankenGame.Controller
 {
     public class JyankenManager
     {
-        private int _userHandSignal;
+        private int _userJyanken;
 
         JyankenScore jyankenScore = new JyankenScore();
 
-        public void GetHandSignal(int type)
+        public void GetUserJyanken(int type)
         {
-            _userHandSignal = 0;
+            _userJyanken = 0;
 
             while (true)
             {
                 if(type >= (int)JyankenTypeEnum.JyankenType.グー && (type <= (int)JyankenTypeEnum.JyankenType.パー))
                 {
-                    _userHandSignal = type;
+                    _userJyanken = type;
                     return;
                 }
                 else
                 {
-                    Console.WriteLine(Constans.HANDSIGNAL_ERROR_MESSAGE);
-                    type = int.Parse(Console.ReadLine());
+                    Console.WriteLine(Constans.JYANKEN_ERROR_MESSAGE);
+                    type = int.Parse(Console.ReadLine()!);
                     continue;
                 }
             }
         }
 
-        private int GetEnemyHandSignal()
+        private int GetEnemyJyanken()
         {
             Random random = new Random();
 
-            int randamHandSignal = random.Next(0,3);
+            int randamJyankenType = random.Next(0,3);
 
-            return randamHandSignal;
+            return randamJyankenType;
         }
 
         private JyankenTypeEnum.JyankenType GetHandName(int handType)
@@ -62,13 +62,13 @@ namespace JyankenGame.Controller
 
         public void ShowWinLoseJuge()
         {
-            int userHandSignal = _userHandSignal;
-            int enemyHandSignal = GetEnemyHandSignal();
+            int userJyanken = _userJyanken;
+            int enemyJyanken = GetEnemyJyanken();
 
-            int juge = (userHandSignal - enemyHandSignal + 3) % 3;
+            int juge = (userJyanken - enemyJyanken + 3) % 3;
 
-            JyankenTypeEnum.JyankenType userJyankenType = GetHandName(userHandSignal);
-            JyankenTypeEnum.JyankenType enemyJyankenType = GetHandName(enemyHandSignal);
+            JyankenTypeEnum.JyankenType userJyankenType = GetHandName(userJyanken);
+            JyankenTypeEnum.JyankenType enemyJyankenType = GetHandName(enemyJyanken);
 
             if (juge == 0)
             {
@@ -89,8 +89,8 @@ namespace JyankenGame.Controller
 
         public void ShowOverAllScores()
         {
-            double winScore = jyankenScore.GetWinRecord();
-            double allScore = jyankenScore.GetAllRecord();
+            double winScore = jyankenScore.GetWinScore();
+            double allScore = jyankenScore.GetAllScore();
             double winRate = Math.Round((winScore / allScore) * 100 ,2);
 
             Console.WriteLine(Constans.PLAYER_OVER_ALL_SCORE_MESSAGE,winRate);
