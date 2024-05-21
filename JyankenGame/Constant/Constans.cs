@@ -8,9 +8,11 @@ namespace JyankenGame.Constant
 {
     static class Constans
     {
-        public static readonly string HANDSIGNAL_MESSAGE = "じゃんけんの手札を入力してください(グー：１　パー：２　チョキ：３)";
-        public static readonly string HANDSIGNAL_ERROR_MESSAGE = "じゃんけんの手札を入力してください(グー：１　パー：２　チョキ：３)";
-        public static readonly string PLAYER_WIN_MESSAGE = "あなた：(手の形)、BOT：(手の形) であなたの勝ち！";
-        public static readonly string PLAYER_LOSE_MESSAGE = "あなた：(手の形)、BOT：(手の形) であなたの勝ち！";
+        public static readonly string HANDSIGNAL_MESSAGE = "じゃんけんの手札を入力してください(グー：0　パー：1　チョキ：2)";
+        public static readonly string HANDSIGNAL_ERROR_MESSAGE = "手の形が入力されていません";
+        public static readonly string PLAYER_WIN_MESSAGE = "あなた：{0}、BOT：{1} であなたの勝ち！";
+        public static readonly string PLAYER_LOSE_MESSAGE = "あなた：{0}、BOT：{1} であなたの負け！";
+        public static readonly string PLAYER_DRAW_MESSAGE = "あなた：{0}、BOT：{1} であいこ！";
+        public static readonly string PLAYER_OVER_ALL_SCORE_MESSAGE = "あなたの通算勝率は{0}％です。";
     }
 }

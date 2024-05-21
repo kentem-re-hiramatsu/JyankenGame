@@ -13,11 +13,11 @@ namespace JyankenGame.Model
 
         public void SetRecord (int winRecord, int loseRecord)
         {
-            _winRecord = winRecord;
-            _LoseRecord=loseRecord;
+            _winRecord += winRecord;
+            _LoseRecord += loseRecord;
         }
 
-        public int GetRecord ()
+        public int GetWinRecord ()
         {
             return _winRecord;
         }

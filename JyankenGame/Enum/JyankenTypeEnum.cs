@@ -10,7 +10,7 @@ namespace JyankenGame.Enum
     {
         public enum JyankenType
         {
-            グー = 1,
+            グー = 0,
             チョキ,
             パー,
         }

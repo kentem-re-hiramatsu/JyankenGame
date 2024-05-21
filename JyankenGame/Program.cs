@@ -5,7 +5,7 @@ namespace JyankenGame
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Constans.handSignal);
+            Console.WriteLine(Constans.HANDSIGNAL_MESSAGE);
         }
     }
 }
