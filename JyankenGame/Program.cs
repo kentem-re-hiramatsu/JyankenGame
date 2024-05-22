@@ -45,7 +45,7 @@ namespace JyankenGame
                 }
                 else
                 {
-                    manager.ShowOverAllScores();
+                    Console.WriteLine(Constans.PLAYER_OVER_ALL_SCORE_MESSAGE, manager.ShowOverAllScores());
                 }
             }
         }

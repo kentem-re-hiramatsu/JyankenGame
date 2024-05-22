@@ -82,13 +82,13 @@ namespace JyankenGame.Controller
             }
         }
 
-        public void ShowOverAllScores()
+        public double ShowOverAllScores()
         {
             double winScore = jyankenScore.GetWinScore();
             double allScore = jyankenScore.GetAllScore();
             double winRate = Math.Round((winScore / allScore) * 100 ,2);
 
-            Console.WriteLine(Constans.PLAYER_OVER_ALL_SCORE_MESSAGE,winRate);
+            return winRate;
         }
     }
 }
