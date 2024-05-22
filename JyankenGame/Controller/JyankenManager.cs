@@ -37,20 +37,21 @@ namespace JyankenGame.Controller
             return randamJyankenType;
         }
 
-        //ここしゅうせいする
         private JyankenTypeEnum.JyankenType GetHandName(int handType)
         {
-            if (handType == (int)JyankenTypeEnum.JyankenType.グー)
+            switch (handType)
             {
-                return JyankenTypeEnum.JyankenType.グー;
-            }
-            else if (handType == (int)JyankenTypeEnum.JyankenType.チョキ)
-            {
-                return JyankenTypeEnum.JyankenType.チョキ;
-            }
-            else
-            {
-                return JyankenTypeEnum.JyankenType.パー;
+                case (int)JyankenTypeEnum.JyankenType.グー:
+                    return JyankenTypeEnum.JyankenType.グー;
+
+                case (int)JyankenTypeEnum.JyankenType.チョキ:
+                    return JyankenTypeEnum.JyankenType.チョキ;
+
+                case (int)JyankenTypeEnum.JyankenType.パー:
+                    return JyankenTypeEnum.JyankenType.パー;
+
+                default:
+                    return 0;
             }
         }
 
