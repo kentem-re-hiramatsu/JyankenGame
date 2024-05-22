@@ -33,7 +33,7 @@ namespace JyankenGame
                             Console.WriteLine(Constans.JYANKEN_MESSAGE);
                             var inputJyankenType = int.Parse(Console.ReadLine()!);
 
-                            manager.GetUserJyanken(inputJyankenType);
+                            manager.SetJyanken(inputJyankenType);
                         }
                         catch
                         {
@@ -41,7 +41,7 @@ namespace JyankenGame
                             Console.WriteLine(Constans.JYANKEN_ERROR_MESSAGE);
                         }
                     }
-                    manager.ShowWinLoseJuge();
+                    Console.WriteLine(Constans.PLAYER_DEFAULT_MESSAGE,manager.GetHandName(manager.GetUserJyanken()),manager.GetHandName(manager.GetEnemyJyanken()), manager.WinLoseJuge());
                 }
                 else
                 {

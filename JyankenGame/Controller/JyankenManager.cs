@@ -7,10 +7,14 @@ namespace JyankenGame.Controller
     public class JyankenManager
     {
         private int _userJyanken;
+        private int _enemyJyanken;
 
         JyankenScore jyankenScore = new JyankenScore();
 
-        public void GetUserJyanken(int type)
+        public int GetUserJyanken () { return _userJyanken; }
+        public int GetEnemyJyanken () { return _enemyJyanken; }
+
+        public void SetJyanken(int type)
         {
             _userJyanken = 0;
 
@@ -19,6 +23,7 @@ namespace JyankenGame.Controller
                 if(type >= (int)JyankenTypeEnum.JyankenType.グー && (type <= (int)JyankenTypeEnum.JyankenType.パー))
                 {
                     _userJyanken = type;
+                    SetEnemyJyanken();
                     return;
                 }
                 else
@@ -28,16 +33,16 @@ namespace JyankenGame.Controller
             }
         }
 
-        private int GetEnemyJyanken()
+        private void SetEnemyJyanken()
         {
             Random random = new Random();
 
             int randamJyankenType = random.Next(0,3);
 
-            return randamJyankenType;
+            _enemyJyanken = randamJyankenType;
         }
 
-        private JyankenTypeEnum.JyankenType GetHandName(int handType)
+        public JyankenTypeEnum.JyankenType GetHandName(int handType)
         {
             switch (handType)
             {
@@ -55,30 +60,27 @@ namespace JyankenGame.Controller
             }
         }
 
-        public void ShowWinLoseJuge()
+        public string WinLoseJuge()
         {
             int userJyanken = _userJyanken;
-            int enemyJyanken = GetEnemyJyanken();
-
+            int enemyJyanken = _enemyJyanken;
             int juge = (userJyanken - enemyJyanken + 3) % 3;
-
-            JyankenTypeEnum.JyankenType userJyankenType = GetHandName(userJyanken);
-            JyankenTypeEnum.JyankenType enemyJyankenType = GetHandName(enemyJyanken);
 
             if (juge == 0)
             {
                 jyankenScore.SetRecord(false);
-                Console.WriteLine(Constans.PLAYER_DRAW_MESSAGE,userJyankenType,enemyJyankenType);
+                return Constans.PLAYER_DRAW_MESSAGE;
             }
-            else if(juge == 2)
+
+            if(juge == 2)
             {
                 jyankenScore.SetRecord(true);
-                Console.WriteLine(Constans.PLAYER_WIN_MESSAGE,userJyankenType,enemyJyankenType);
+                return Constans.PLAYER_WIN_MESSAGE;
             }
             else
             {
                 jyankenScore.SetRecord(false);
-                Console.WriteLine(Constans.PLAYER_LOSE_MESSAGE,userJyankenType,enemyJyankenType);
+                return Constans.PLAYER_LOSE_MESSAGE;
             }
         }
 
