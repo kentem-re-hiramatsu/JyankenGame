@@ -1,11 +1,6 @@
 ﻿using JyankenGame.Constant;
 using JyankenGame.Enum;
 using JyankenGame.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JyankenGame.Controller
 {
@@ -28,9 +23,7 @@ namespace JyankenGame.Controller
                 }
                 else
                 {
-                    Console.WriteLine(Constans.JYANKEN_ERROR_MESSAGE);
-                    type = int.Parse(Console.ReadLine()!);
-                    continue;
+                    throw new Exception();
                 }
             }
         }
@@ -44,6 +37,7 @@ namespace JyankenGame.Controller
             return randamJyankenType;
         }
 
+        //ここしゅうせいする
         private JyankenTypeEnum.JyankenType GetHandName(int handType)
         {
             if (handType == (int)JyankenTypeEnum.JyankenType.グー)
@@ -72,17 +66,17 @@ namespace JyankenGame.Controller
 
             if (juge == 0)
             {
-                jyankenScore.SetRecord(0);
+                jyankenScore.SetRecord(false);
                 Console.WriteLine(Constans.PLAYER_DRAW_MESSAGE,userJyankenType,enemyJyankenType);
             }
             else if(juge == 2)
             {
-                jyankenScore.SetRecord(1);
+                jyankenScore.SetRecord(true);
                 Console.WriteLine(Constans.PLAYER_WIN_MESSAGE,userJyankenType,enemyJyankenType);
             }
             else
             {
-                jyankenScore.SetRecord(0);
+                jyankenScore.SetRecord(false);
                 Console.WriteLine(Constans.PLAYER_LOSE_MESSAGE,userJyankenType,enemyJyankenType);
             }
         }

@@ -22,11 +22,25 @@ namespace JyankenGame
 
                 if (selectType == 1)
                 {
-                    Console.WriteLine(Constans.JYANKEN_MESSAGE);
+                    bool success = false;
 
-                    var inputJyankenType = int.Parse(Console.ReadLine()!);
+                    while (!success)
+                    {
+                        try
+                        {
+                            success = true;
 
-                    manager.GetUserJyanken(inputJyankenType);
+                            Console.WriteLine(Constans.JYANKEN_MESSAGE);
+                            var inputJyankenType = int.Parse(Console.ReadLine()!);
+
+                            manager.GetUserJyanken(inputJyankenType);
+                        }
+                        catch
+                        {
+                            success = false;
+                            Console.WriteLine(Constans.JYANKEN_ERROR_MESSAGE);
+                        }
+                    }
                     manager.ShowWinLoseJuge();
                 }
                 else

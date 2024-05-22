@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JyankenGame.Model
+﻿namespace JyankenGame.Model
 {
     public class JyankenScore
     {
         private int _winScore = 0;
         private int _allScore = 0;
 
-        public void SetRecord (int winScore)
+        public void SetRecord (bool isWin)
         {
-            _winScore += winScore;
+            if (isWin)
+            {
+                _winScore += 1;
+            }
             _allScore += 1;
         }
 
